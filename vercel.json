@@ -6,8 +6,16 @@
       "destination": "/public/index.html"
     },
     {
-      "source": "/(.*)",
-      "destination": "/public/$1"
+      "source": "/css/:match*",
+      "destination": "/public/css/:match*"
+    },
+    {
+      "source": "/js/:match*",
+      "destination": "/public/js/:match*"
+    },
+    {
+      "source": "/assets/:match*",
+      "destination": "/public/assets/:match*"
     }
   ]
 }
