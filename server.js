@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 
 const MOVES = ['pedra', 'papel', 'tesoura'];
 
@@ -54,8 +54,7 @@ app.post('/api/ai-move', async (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
-
 
 module.exports = app;
