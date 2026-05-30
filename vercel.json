@@ -2,8 +2,12 @@
   "version": 2,
   "rewrites": [
     {
+      "source": "/",
+      "destination": "/public/index.html"
+    },
+    {
       "source": "/(.*)",
-      "destination": "/server.js"
+      "destination": "/public/$1"
     }
   ]
 }
