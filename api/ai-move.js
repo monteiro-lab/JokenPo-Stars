@@ -1,6 +1,6 @@
 const MOVES = ['pedra', 'papel', 'tesoura'];
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'OPTIONS,POST');
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
 
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 segundos de limite
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -44,12 +44,10 @@ export default async function handler(req, res) {
     clearTimeout(timeoutId);
     const data = await response.json();
 
-
     if (data.error) throw new Error(data.error.message);
 
     const content = JSON.parse(data.choices[0].message.content);
     
-
     if (!MOVES.includes(content.move)) throw new Error('movimento inválido retornado');
     
     return res.status(200).json(content);
@@ -57,7 +55,6 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error('Erro no processamento da IA:', error.message);
     
-  
     return res.status(200).json({ 
       move: MOVES[Math.floor(Math.random() * 3)], 
       reaction: "Meus circuitos falharam, mas joguei no escuro!" 
