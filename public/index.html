@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JokenPô Stars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/styles.css">
+    <link rel="icon" type="image/png" href="../public/assets/star.png">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div id="mesh-bg" aria-hidden="true"></div>
+
+    <div id="start-screen" class="overlay active">
+        <div class="glass card">
+            <i data-feather="target" class="main-icon"></i>
+            <h1>Jokenpô Stars</h1>
+            <p>Prepare-se para enfrentar a máquina.</p>
+            <input type="text" id="user-name-input" placeholder="Para iniciar, digite seu nome..." maxlength="12" aria-label="Seu nome">
+            <button id="start-btn" class="primary-btn">Iniciar Partida</button>
+        </div>
+    </div>
+
+    <main id="game-container" class="hidden">
+        <header class="glass top-bar">
+            <div class="stat"><span>Você:</span> <b id="score-user">0</b></div>
+            <div class="round-badge" id="round-text" aria-live="polite">Round 1</div>
+            <div class="stat"><span>IA:</span> <b id="score-ai">0</b></div>
+        </header>
+
+        <section class="arena">
+            <div class="player-zone">
+                <div class="avatar" id="user-avatar">?</div>
+                <h3 id="user-display-name">Jogador</h3>
+                <div class="move-slot glass" id="user-move-slot" aria-label="Sua jogada"><i data-feather="help-circle"></i></div>
+            </div>
+
+            <div class="vs-divider" aria-hidden="true">VS</div>
+
+            <div class="player-zone">
+                <div class="avatar ai-avatar"><i data-feather="cpu"></i></div>
+                <h3>Máquina</h3>
+                <div class="move-slot glass" id="ai-move-slot" aria-label="Jogada da máquina"><i data-feather="cpu"></i></div>
+                <div id="ai-bubble" class="speech-bubble hidden" aria-live="assertive"></div>
+            </div>
+        </section>
+
+        <footer class="controls glass">
+            <p id="status-msg" aria-live="polite">Escolha sua jogada</p>
+            <div class="btn-group">
+                <button class="move-btn" data-move="pedra" aria-label="Jogar Pedra"><i data-feather="aperture"></i> Pedra</button>
+                <button class="move-btn" data-move="papel" aria-label="Jogar Papel"><i data-feather="file-text"></i> Papel</button>
+                <button class="move-btn" data-move="tesoura" aria-label="Jogar Tesoura"><i data-feather="scissors"></i> Tesoura</button>
+            </div>
+        </footer>
+    </main>
+
+    <script src="../public/js/scripts.js"></script>
+</body>
+</html>
