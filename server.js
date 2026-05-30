@@ -31,7 +31,7 @@ app.post('/api/ai-move', async (req, res) => {
           content: `você é uma IA provocativa e sarcástica jogando jokenpô contra ${name}.`
         }, {
           role: 'user',
-          content: `round: ${round}. placar: IA ${score.ai} x ${score.user} ${name}. histórico: [${history.slice(-5).join(', ')}]. preveja a jogada e escolha a sua para vencer. retorne JSON: {"move": "pedra|papel|tesoura", "reaction": "provocação"}`
+          content: `round: ${round}. placar: IA ${score.ai} x ${score.user} ${name}. histórico: [${history.slice(-5).join(', ')}]. preveja a jogada e escolha a sua para vencer. retorne JSON: {"move": "pedra|papel|tesoura", "reaction": "uma frase curta e provocativa"}`
         }],
         temperature: 0.7,
         response_format: { type: "json_object" }
